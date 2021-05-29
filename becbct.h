@@ -20,17 +20,17 @@ string ArmorStandNameBuilder(int Num){
     string Name;
     if(High!=0){
     	Name="";
-    	Name+=char(High+64);
-	Name+=char(Low+64);
+    	Name+=char(High+65);
+	Name+=char(Low+65);
     }
-    else Name=char(Low+64);
+    else Name=char(Low+65);
     return Name;
 }
 void FourierSeriesBuilder(TrigonometricFunction TriFunc[],int n){
     string name,namep,SelectorA,SelectorB,Head;
     ofstream ofs;
     ofs.open("in.txt");
-    ofs<<n<<endl;
+    ofs<<n*2<<endl;
 	for(register int i=0;i<n;++i){
 	    name=ArmorStandNameBuilder(i);
 	    namep=ArmorStandNameBuilder(i+1);
