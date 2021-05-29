@@ -7,7 +7,7 @@
 #include<string>
 #include<cmath>
 #include<fstream>
-#include<iomanip>
+#include <iomanip>
 #include<cmath>
 using namespace std;
 struct TrigonometricFunction{
@@ -47,14 +47,6 @@ bool CopyToClipboard(const char* pszData, const int nDataLen){
     }
     return false;
 }
-void Mouse_Move(int x,int y)
-{
-	double fScreenWidth=::GetSystemMetrics(SM_CXSCREEN)-1;
-	double fScreenHeight=::GetSystemMetrics(SM_CYSCREEN)-1;
-	double fx=x*(65535.0f/fScreenWidth);
-	double fy=y*(65535.0f/fScreenHeight);
-	mouse_event(MOUSEEVENTF_ABSOLUTE|MOUSEEVENTF_MOVE,fx,fy,0,0);
-}
 void command(string cmd){
 	CopyToClipboard(cmd.c_str(),cmd.size());
 	press(84);
@@ -85,16 +77,19 @@ string ArmorStandNameBuilder(int Num){
     else Name = char(Low);
     return Name;
 }
-void FourierSeriesBuilder(TrigonometricFunction TriFunc[],int i){
-    string name = ArmorStandNameBuilder(i), namep = ArmorStandNameBuilder(i++);
-    string SelectorA = "@e[type=armor_stand,name=" + name + "]";
-    string SelectorB = "@e[type=armor_stand,name=" + namep + "]";
-    string Head;
-    i==0?Head="[rcb]":Head="[ccb]";
-    ofstream ofs;
-    ofs.open("in.txt");
-    ofs<<Head<<" execute "<<SelectorA<<" ~~~ tp @s ~~~ ~"<<roundt(TriFunc[i].omega)<<"~"<<endl;
-    ofs<<"[ccb]"<<" execute "<<SelectorA<<" ~~~ tp "<<SelectorB<<" ^^^"<<roundt(TriFunc[i].alpha)<<endl;
+void FourierSeriesBuilder(TrigonometricFunction TriFunc[],int n){
+    string name, namep, SelectorA, SelectorB, Head;
+	for(register int i=0;i<n;++i){
+	    name = ArmorStandNameBuilder(i);
+	    namep = ArmorStandNameBuilder(i+1);
+            SelectorA = "@e[type=armor_stand,name=" + name + "]";
+    	    SelectorB = "@e[type=armor_stand,name=" + namep + "]";
+    	    i==0?Head="[rcb]":Head="[ccb]";
+    	    ofstream ofs;
+    	    ofs.open("in.txt");
+    	    ofs<<Head<<" execute "<<SelectorA<<" ~~~ tp @s ~~~ ~"<<roundt(TriFunc[i].omega)<<"~"<<endl;
+    	    ofs<<"[ccb]"<<" execute "<<SelectorA<<" ~~~ tp "<<SelectorB<<" ^^^"<<roundt(TriFunc[i].alpha)<<endl;
+	}
     //execute <Selector> ~~~ <FuncName> -----
 }
 #endif
