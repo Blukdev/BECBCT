@@ -48,7 +48,7 @@ void commandblock(string cmd){
 	press(2);
 	Sleep(50);
 	press(111);
-	Sleep(150);
+	Sleep(200);
 	Ctrl_V();
 	Sleep(600);
 	press(27);
