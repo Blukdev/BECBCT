@@ -1,2 +1,2 @@
 # BECBCT
-Bedrock Edition Command Blocks' Convenient Tools
+Bedrock Edition Command Block's Convenient Tools
