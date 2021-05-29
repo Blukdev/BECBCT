@@ -46,11 +46,11 @@ void command(string cmd){
 void commandblock(string cmd){
 	CopyToClipboard(cmd.c_str(),cmd.size());
 	press(2);
-	Sleep(50);
+	Sleep(70);
 	press(111);
-	Sleep(230);
+	Sleep(300);
 	Ctrl_V();
-	Sleep(630);
+	Sleep(700);
 	press(27);
 	Sleep(100);
 	press(27);
@@ -63,9 +63,9 @@ int main(){
 	FourierSeriesBuilder(TF,n);
 	cout<<"start!"<<endl; 
 	freopen("in.txt","r",stdin);
-	int x=1,y=5,z=1;
-	int types;
+	int types,cb;
 	cin>>types;
+	cb=types/2+1;
 	string commands[types+5];
 	string commandblocks[types+5];
 	for(int i=1;i<=types;i++){
@@ -74,17 +74,32 @@ int main(){
 		getline(cin,commands[i]);
 	}
 	Sleep(3000);
+	for(int i=1;i<=cb;i++){
+		string type;
+		if(i==1)type="command_block";
+		else type="chain_command_block";
+		command("setblock "+to_string(2-i)+" 4 2 "+type+" 4");
+		Sleep(500);
+	}
+	Sleep(400);
+	for(int i=1;i<=cb;i++){
+		command("tp @s "+to_string(2-i)+" 5 2 -90 90");
+		Sleep(500);
+		commandblock("summon armor_stand "+ArmorStandNameBuilder(i-1)+" 10 10 10");
+		Sleep(800);
+	}
+	Sleep(400);
 	for(int i=1;i<=types;i++){
 		string type;
 		if(commandblocks[i]=="[rcb]")type="repeating_command_block";
 		else if(commandblocks[i]=="[ccb]")type="chain_command_block";
 		else type="command_block";
-		command("setblock "+to_string(x-i+1)+" 4 1 "+type+" 4");
+		command("setblock "+to_string(2-i)+" 4 1 "+type+" 4");
 		Sleep(500);
 	}
 	Sleep(400);
 	for(int i=1;i<=types;i++){
-		command("tp @s "+to_string(x-i+1)+" 5 1 -90 90");
+		command("tp @s "+to_string(2-i)+" 5 1 -90 90");
 		Sleep(500);
 		commandblock(commands[i]);
 		Sleep(800);
