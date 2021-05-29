@@ -48,7 +48,7 @@ void commandblock(string cmd){
 	press(2);
 	Sleep(50);
 	press(111);
-	Sleep(100);
+	Sleep(150);
 	Ctrl_V();
 	Sleep(600);
 	press(27);
@@ -56,6 +56,12 @@ void commandblock(string cmd){
 	press(27);
 }
 int main(){
+	TrigonometricFunction TF[10000];
+	int n;
+	cin>>n;
+	for(int i=0;i<n;++i)cin>>TF[i].omega>>TF[i].alpha;
+	FourierSeriesBuilder(TF,n);
+	cout<<"start!"<<endl; 
 	freopen("in.txt","r",stdin);
 	int x=1,y=5,z=1;
 	int types;
