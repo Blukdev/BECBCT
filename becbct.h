@@ -73,8 +73,8 @@ string ArmorStandNameBuilder(int Num){
     int High = Num/26;
     int Low = Num%26;
     string Name;
-    if(High!=0)Name = char(High+64)+char(Low);
-    else Name = char(Low);
+    if(High!=0)Name = char(High+64)+char(Low+64);
+    else Name = char(Low+64);
     return Name;
 }
 void FourierSeriesBuilder(TrigonometricFunction TriFunc[],int n){
