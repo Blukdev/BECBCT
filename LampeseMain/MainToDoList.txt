@@ -1,0 +1,2 @@
+1.Add support for Linux
+2.Support editing command block panel
