@@ -13,6 +13,7 @@ using namespace std;
 struct TrigonometricFunction{
     float alpha;
     float omega;
+    float fai;
 };
 string ArmorStandNameBuilder(int Num){
     int High=Num/26;
@@ -39,6 +40,20 @@ void FourierSeriesBuilder(TrigonometricFunction TriFunc[],int n){
     	    i==0?Head="[rcb]":Head="[ccb]";
     	    ofs<<Head<<" execute "<<SelectorA<<" ~~~ tp @s ~~~ ~"<<roundt(TriFunc[i].omega)<<"~"<<endl;
     	    ofs<<"[ccb]"<<" execute "<<SelectorA<<" ~~~ tp "<<SelectorB<<" ^^^"<<roundt(TriFunc[i].alpha)<<endl;
+	}
+    ofs.close();
+}
+void InitialPhaseFix(TrigonometricFunction TriFunc[],int n){
+    string name,Selector,Head;
+    ofstream ofs;
+    ofs.open("initialize.txt");
+    ofs<<n*2<<endl;
+	for(register int i=0;i<n;++i){
+	    name=ArmorStandNameBuilder(i);
+        Selector="@e[type=armor_stand,name="+name+"]";
+    	i==0?Head="[ncb]":Head="[ccb]";
+    	ofs<<Head<<" execute "<<Selector<<" ~~~ tp @s ~~~ 0 0"<<endl;
+    	ofs<<"[ccb]"<<" execute "<<Selector<<" ~~~ tp @s ~"<<roundt((TriFunc[i].fai*180/3.14159265358979))<<"~"<<endl;
 	}
     ofs.close();
 }
