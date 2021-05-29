@@ -94,7 +94,7 @@ void FourierSeriesBuilder(TrigonometricFunction TriFunc[],int i){
     ofstream ofs;
     ofs.open("in.txt");
     ofs<<Head<<" execute "<<SelectorA<<" ~~~ tp @s ~~~ ~"<<roundt(TriFunc[i].omega)<<"~"<<endl;
-    ofs<<"[ccb]"<<" execute "<<SelectorA<<" ~~~ tp "<<SelectorB<<" ^^^"<<roundt(TriFunc[i].omega)<<endl;
+    ofs<<"[ccb]"<<" execute "<<SelectorA<<" ~~~ tp "<<SelectorB<<" ^^^"<<roundt(TriFunc[i].alpha)<<endl;
     //execute <Selector> ~~~ <FuncName> -----
 }
 #endif
