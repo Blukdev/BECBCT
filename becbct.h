@@ -79,17 +79,19 @@ string ArmorStandNameBuilder(int Num){
 }
 void FourierSeriesBuilder(TrigonometricFunction TriFunc[],int n){
     string name, namep, SelectorA, SelectorB, Head;
+    ofstream ofs;
+    ofs.open("in.txt");
+    ofs<<n<<endl;
 	for(register int i=0;i<n;++i){
 	    name = ArmorStandNameBuilder(i);
 	    namep = ArmorStandNameBuilder(i+1);
             SelectorA = "@e[type=armor_stand,name=" + name + "]";
     	    SelectorB = "@e[type=armor_stand,name=" + namep + "]";
     	    i==0?Head="[rcb]":Head="[ccb]";
-    	    ofstream ofs;
-    	    ofs.open("in.txt");
     	    ofs<<Head<<" execute "<<SelectorA<<" ~~~ tp @s ~~~ ~"<<roundt(TriFunc[i].omega)<<"~"<<endl;
     	    ofs<<"[ccb]"<<" execute "<<SelectorA<<" ~~~ tp "<<SelectorB<<" ^^^"<<roundt(TriFunc[i].alpha)<<endl;
 	}
+    ofs.close();
     //execute <Selector> ~~~ <FuncName> -----
 }
 #endif
