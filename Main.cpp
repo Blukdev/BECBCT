@@ -1,5 +1,60 @@
 #include "becbct.h"
-using namespace std; 
+using namespace std;
+void down(int vk){
+	keybd_event(vk,0,0,0);
+}
+void up(int vk){
+    keybd_event(vk,0,KEYEVENTF_KEYUP,0);
+}
+void press(int vk){
+    down(vk);
+    Sleep(50);
+    up(vk);
+}
+void Ctrl_V(){
+	keybd_event(VK_CONTROL,0,0,0);
+    keybd_event('V',0,0,0);
+    Sleep(50);
+    keybd_event('V',0,KEYEVENTF_KEYUP,0);
+    keybd_event(VK_CONTROL,0,KEYEVENTF_KEYUP,0);
+}
+bool CopyToClipboard(const char* pszData, const int nDataLen){
+    if(::OpenClipboard(NULL)){
+        ::EmptyClipboard();
+        HGLOBAL clipbuffer;
+        char *buffer;
+        clipbuffer=::GlobalAlloc(GMEM_DDESHARE,nDataLen+1);
+        buffer=(char*)::GlobalLock(clipbuffer);
+        strcpy(buffer,pszData);
+        ::GlobalUnlock(clipbuffer);
+        ::SetClipboardData(CF_TEXT,clipbuffer);
+        ::CloseClipboard();
+        return true;
+    }
+    return false;
+}
+void command(string cmd){
+	CopyToClipboard(cmd.c_str(),cmd.size());
+	press(84);
+	Sleep(50);
+	press(111);
+	Sleep(50);
+	Ctrl_V();
+	Sleep(500);
+	press(13);
+}
+void commandblock(string cmd){
+	CopyToClipboard(cmd.c_str(),cmd.size());
+	press(2);
+	Sleep(50);
+	press(111);
+	Sleep(100);
+	Ctrl_V();
+	Sleep(600);
+	press(27);
+	Sleep(100);
+	press(27);
+}
 int main(){
 	freopen("in.txt","r",stdin);
 	int x=1,y=5,z=1;
