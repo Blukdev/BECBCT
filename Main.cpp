@@ -46,11 +46,11 @@ void command(string cmd){
 void commandblock(string cmd){
 	CopyToClipboard(cmd.c_str(),cmd.size());
 	press(2);
-	Sleep(70);
+	Sleep(150);
 	press(111);
 	Sleep(300);
 	Ctrl_V();
-	Sleep(700);
+	Sleep(650);
 	press(27);
 	Sleep(100);
 	press(27);
