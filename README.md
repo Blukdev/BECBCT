@@ -19,7 +19,7 @@ void FourierSeriesBuilder(TrigonometricFunction TriFunc[],int n){}
 void InitialPhaseFix(TrigonometricFunction TriFunc[],int n){}
 //This function is used to turn Initial Phase Fixing into implement of Minecraft BE command, out put to 'in.txt' with input standard.
 ```
-# Edit pos:
+# Edit position:
    You can set the generated coordinates in Main.cpp as follows: 
    ```cpp
    void init(){
