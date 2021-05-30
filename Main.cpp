@@ -55,7 +55,24 @@ void commandblock(string cmd){
 	Sleep(100);
 	press(27);
 }
+struct settings{
+	int x;
+	int y;
+	int z;
+}sets,setb,sete;
+void init(){
+	sets.x=1;
+	sets.y=4;
+	sets.z=1;
+	setb.x=1;
+	setb.y=4;
+	setb.z=2;
+	sete.x=10;
+	sete.y=4;
+	sete.z=10;
+}
 int main(){
+	init();
 	TrigonometricFunction TF[10000];
 	int n;
 	cin>>n;
@@ -78,14 +95,14 @@ int main(){
 		string type;
 		if(i==1)type="command_block";
 		else type="chain_command_block";
-		command("setblock "+to_string(2-i)+" 4 2 "+type+" 4");
+		command("setblock "+to_string(setb.x-i+1)+" "+to_string(setb.y)+" "+to_string(setb.z)+" "+type+" 4");
 		Sleep(500);
 	}
 	Sleep(400);
 	for(int i=1;i<=cb;i++){
-		command("tp @s "+to_string(2-i)+" 5 2 -90 90");
+		command("tp @s "+to_string(setb.x-i+1)+" "+to_string(setb.y+1)+" "+to_string(setb.z)+" -90 90");
 		Sleep(500);
-		commandblock("summon armor_stand "+ArmorStandNameBuilder(i-1)+" 10 10 10");
+		commandblock("summon armor_stand "+ArmorStandNameBuilder(i-1)+" "+to_string(sete.x)+" "+to_string(sete.y)+" "+to_string(sete.z));
 		Sleep(800);
 	}
 	Sleep(400);
@@ -94,12 +111,12 @@ int main(){
 		if(commandblocks[i]=="[rcb]")type="repeating_command_block";
 		else if(commandblocks[i]=="[ccb]")type="chain_command_block";
 		else type="command_block";
-		command("setblock "+to_string(2-i)+" 4 1 "+type+" 4");
+		command("setblock "+to_string(sets.x-i+1)+" "+to_string(sets.y)+" "+to_string(sets.z)+" "+type+" 4");
 		Sleep(500);
 	}
 	Sleep(400);
 	for(int i=1;i<=types;i++){
-		command("tp @s "+to_string(2-i)+" 5 1 -90 90");
+		command("tp @s "+to_string(sets.x-i+1)+" "+to_string(sets.y+1)+" "+to_string(sets.z)+" -90 90");
 		Sleep(500);
 		commandblock(commands[i]);
 		Sleep(800);
