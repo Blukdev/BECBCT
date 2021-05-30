@@ -59,37 +59,58 @@ struct settings{
 	int x;
 	int y;
 	int z;
-}sets,setb,sete;
+}sets,setb,sete,setfix;
 void init(){
+	//set main list pos
 	sets.x=1;
 	sets.y=4;
 	sets.z=1;
+	//set summon list pos
 	setb.x=1;
 	setb.y=4;
-	setb.z=2;
+	setb.z=3;
+	//set entity pos
 	sete.x=10;
 	sete.y=4;
 	sete.z=10;
+	//set initial pos
+	setfix.x=1;
+	setfix.y=4;
+	setfix.z=5;
+}
+TrigonometricFunction TF[10000];
+void Getdata(int &n){
+	ifstream datain("set.txt");
+	datain>>n;
+	for(int i=0;i<n;++i)datain>>TF[i].omega>>TF[i].alpha>>TF[i].fai;
+	datain.close();
 }
 int main(){
 	init();
-	TrigonometricFunction TF[10000];
-	int n;
-	cin>>n;
-	for(int i=0;i<n;++i)cin>>TF[i].omega>>TF[i].alpha;
+	int n,types,cb,fixs;
+	Getdata(n);
 	FourierSeriesBuilder(TF,n);
+	InitialPhaseFix(TF,n);
 	cout<<"start!"<<endl; 
-	freopen("in.txt","r",stdin);
-	int types,cb;
-	cin>>types;
+	ifstream fin("in.txt");
+	fin>>types;
 	cb=types/2+1;
-	string commands[types+5];
-	string commandblocks[types+5];
+	string commands[types+5],commandblocks[types+5];
 	for(int i=1;i<=types;i++){
-		cin>>commandblocks[i];
-		getchar();
-		getline(cin,commands[i]);
+		fin>>commandblocks[i];
+		getline(fin,commands[i]);
+		commands[i].erase(0,1);
 	}
+	fin.close();
+	ifstream fixin("initial.txt");
+	fixin>>fixs;
+	string fixcommands[types+5],fixcommandblocks[types+5];
+	for(int i=1;i<=fixs;i++){
+		fixin>>fixcommandblocks[i];
+		getline(fixin,fixcommands[i]);
+		fixcommands[i].erase(0,1);
+	}
+	fixin.close();
 	Sleep(3000);
 	for(int i=1;i<=cb;i++){
 		string type;
@@ -121,5 +142,20 @@ int main(){
 		commandblock(commands[i]);
 		Sleep(800);
 	}
-	fclose(stdin);
+	Sleep(400);
+	for(int i=1;i<=fixs;i++){
+		string type;
+		if(fixcommandblocks[i]=="[rcb]")type="repeating_command_block";
+		else if(fixcommandblocks[i]=="[ccb]")type="chain_command_block";
+		else type="command_block";
+		command("setblock "+to_string(setfix.x-i+1)+" "+to_string(setfix.y)+" "+to_string(setfix.z)+" "+type+" 4");
+		Sleep(500);
+	}
+	Sleep(400);
+	for(int i=1;i<=fixs;i++){
+		command("tp @s "+to_string(setfix.x-i+1)+" "+to_string(setfix.y+1)+" "+to_string(setfix.z)+" -90 90");
+		Sleep(500);
+		commandblock(fixcommands[i]);
+		Sleep(800);
+	}
 }
