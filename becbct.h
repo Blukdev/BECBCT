@@ -53,7 +53,7 @@ void InitialPhaseFix(TrigonometricFunction TriFunc[],int n){
         Selector="@e[type=armor_stand,name="+name+"]";
     	i==0?Head="[ncb]":Head="[ccb]";
     	ofs<<Head<<" execute "<<Selector<<" ~~~ tp @s ~~~ 0 0"<<endl;
-    	ofs<<"[ccb]"<<" execute "<<Selector<<" ~~~ tp @s ~"<<roundt((TriFunc[i].fai*180/3.14159265358979))<<"~"<<endl;
+    	ofs<<"[ccb]"<<" execute "<<Selector<<" ~~~ tp @s ~~~ ~"<<roundt((TriFunc[i].fai*180/3.14159265358979))<<"~"<<endl;
 	}
     ofs.close();
 }
