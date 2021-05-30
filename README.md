@@ -17,3 +17,25 @@
     //This function is used to turn Forier Series into implement of Minecraft BE command, out put to 'in.txt' with input standard.
     void InitialPhaseFix(TrigonometricFunction TriFunc[],int n)
     //This function is used to turn Initial Phase Fixing into implement of Minecraft BE command, out put to 'in.txt' with input standard.
+# Edit pos:
+   You can set the generated coordinates in Main.cpp as follows: 
+   ```cpp
+   void init(){
+	  //set main list pos
+	  sets.x=1;
+	  sets.y=4;
+	  sets.z=1;
+	  //set summon list pos
+	  setb.x=1;
+	  setb.y=4;
+	  setb.z=3;
+	  //set entity pos
+	  sete.x=10;
+	  sete.y=4;
+	  sete.z=10;
+	  //set initial pos
+	  setfix.x=1;
+	  setfix.y=4;
+	  setfix.z=5;
+   }
+   ```
