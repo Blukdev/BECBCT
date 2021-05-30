@@ -13,12 +13,12 @@
     //command block types contains: rcb(repeating_command_block), ccb(chain_command_block), ncb(command_block).
 # Some basic functions:
 ```cpp
-    void FourierSeriesBuilder(TrigonometricFunction TriFunc[],int n){}
-    //TrigonometricFunction is a struct in 'becbct.h'.
-    //This function is used to turn Forier Series into implement of Minecraft BE command, out put to 'in.txt' with input standard.
-    void InitialPhaseFix(TrigonometricFunction TriFunc[],int n){}
-    //This function is used to turn Initial Phase Fixing into implement of Minecraft BE command, out put to 'in.txt' with input standard.
- ```
+void FourierSeriesBuilder(TrigonometricFunction TriFunc[],int n){}
+//TrigonometricFunction is a struct in 'becbct.h'.
+//This function is used to turn Forier Series into implement of Minecraft BE command, out put to 'in.txt' with input standard.
+void InitialPhaseFix(TrigonometricFunction TriFunc[],int n){}
+//This function is used to turn Initial Phase Fixing into implement of Minecraft BE command, out put to 'in.txt' with input standard.
+```
 # Edit pos:
    You can set the generated coordinates in Main.cpp as follows: 
    ```cpp
