@@ -21,10 +21,10 @@ void InitialPhaseFix(TrigonometricFunction TriFunc[],int n){}
 ```
 # About FourierSeriesBuilder()&InitialPhaseFix()
 - These two function will generate a series of commands to generate epicycles which can draw a closed curve.
-- There are some keywords. 
-    `.omega` of `struct TrigonometricFunction` is angular frequency of TrigonometricFunction.
-    `.alpha` of `struct TrigonometricFunction` is amplitude of TrigonometricFunction.
-    `.fai` of `struct TrigonometricFunction` is initial phase of TrigonometricFunction.
+- There are some keywords.
+- `.omega` of `struct TrigonometricFunction` is angular frequency of TrigonometricFunction.
+- `.alpha` of `struct TrigonometricFunction` is amplitude of TrigonometricFunction.
+- `.fai` of `struct TrigonometricFunction` is initial phase of TrigonometricFunction.
 # Edit position:
    You can set the generated coordinates in Main.cpp as follows: 
    ```cpp
