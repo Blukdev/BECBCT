@@ -46,7 +46,7 @@ void FourierSeriesBuilder(TrigonometricFunction TriFunc[],int n){
 void InitialPhaseFix(TrigonometricFunction TriFunc[],int n){
     string name,Selector,Head;
     ofstream ofs;
-    ofs.open("in.txt");
+    ofs.open("initial.txt");
     ofs<<n*2<<endl;
 	for(register int i=0;i<n;++i){
 	    name=ArmorStandNameBuilder(i);
