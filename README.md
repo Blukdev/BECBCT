@@ -17,7 +17,7 @@ void FourierSeriesBuilder(TrigonometricFunction TriFunc[],int n){}
 //TrigonometricFunction is a struct in 'becbct.h'.
 //This function is used to turn Forier Series into implement of Minecraft BE command, out put to 'in.txt' with input standard.
 void InitialPhaseFix(TrigonometricFunction TriFunc[],int n){}
-//This function is used to turn Initial Phase Fixing into implement of Minecraft BE command, out put to 'in.txt' with input standard.
+//This function is used to turn Initial Phase Fixing into implement of Minecraft BE command, out put to 'initial.txt' with input standard.
 ```
 # Edit position:
    You can set the generated coordinates in Main.cpp as follows: 
