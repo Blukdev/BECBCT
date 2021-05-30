@@ -4,7 +4,7 @@
  <img src="./icon.png" width = "300" height = "300" alt="icon" align=center />
  
 # Why we establish this project?
-- It is very troublesome to set so many command blocks, and the opreation of .function file is inconvenience, so that we established this project.
+- It is very troublesome to set so many command blocks, and the opreation of `.function` file is inconvenience, so that we established this project.
 # Input standard:
     Num of commands
     [type of command block] command
