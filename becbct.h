@@ -38,7 +38,7 @@ void FourierSeriesBuilder(TrigonometricFunction TriFunc[],int n){
             SelectorA="@e[type=armor_stand,name="+name+"]";
     	    SelectorB="@e[type=armor_stand,name="+namep+"]";
     	    i==0?Head="[rcb]":Head="[ccb]";
-    	    ofs<<Head<<" execute "<<SelectorA<<" ~~~ tp @s ~~~ ~"<<roundt(TriFunc[i].omega)<<"~"<<endl;
+    	    ofs<<Head<<" execute "<<SelectorA<<" ~~~ tp @s ~~~ ~"<<roundt((-1)*TriFunc[i].omega)<<"~"<<endl;
     	    ofs<<"[ccb]"<<" execute "<<SelectorA<<" ~~~ tp "<<SelectorB<<" ^^^"<<roundt(TriFunc[i].alpha)<<endl;
 	}
     ofs.close();
@@ -53,7 +53,7 @@ void InitialPhaseFix(TrigonometricFunction TriFunc[],int n){
         Selector="@e[type=armor_stand,name="+name+"]";
     	i==0?Head="[ncb]":Head="[ccb]";
     	ofs<<Head<<" execute "<<Selector<<" ~~~ tp @s ~~~ 0 0"<<endl;
-    	ofs<<"[ccb]"<<" execute "<<Selector<<" ~~~ tp @s ~~~ ~"<<roundt((TriFunc[i].fai*180/3.14159265358979))<<"~"<<endl;
+    	ofs<<"[ccb]"<<" execute "<<Selector<<" ~~~ tp @s ~~~ ~"<<roundt(((-1)*TriFunc[i].fai*180/3.14159265358979))<<"~"<<endl;
 	}
     ofs.close();
 }
