@@ -7,7 +7,7 @@
 #include<string>
 #include<cmath>
 #include<fstream>
-#include <iomanip>
+#include<iomanip>
 #include<cmath>
 using namespace std;
 struct TrigonometricFunction{
