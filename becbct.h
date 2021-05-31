@@ -16,8 +16,8 @@ struct TrigonometricFunction{
     float fai;
 };
 string ArmorStandNameBuilder(int Num){
-    int High=Num/26;
-    int Low=Num%26;
+    int High=Num/52;
+    int Low=Num%52;
     string Name;
     if(High!=0){
     	Name="";
