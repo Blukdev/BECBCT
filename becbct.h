@@ -1,5 +1,4 @@
-#ifndef BECBCT_H
-#define BECBCT_H
+#pragma once
 #include<cmath>
 #include<cstdio>
 #include<string>
@@ -58,4 +57,3 @@ void InitialPhaseFix(TrigonometricFunction TriFunc[],int n){
 	  }
     ofs.close();
 }
-#endif
