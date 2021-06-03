@@ -21,8 +21,8 @@ string ArmorStandNameBuilder(int Num){
     if(High!=0){
     	Name="";
     	Name+=char(High+65);
-		  Name+=char(Low+65);
-	  }
+	Name+=char(Low+65);
+    }
     else Name=char(Low+65);
     return Name;
 }
@@ -31,15 +31,15 @@ void FourierSeriesBuilder(TrigonometricFunction TriFunc[],int n){
     ofstream ofs;
     ofs.open("in.txt");
     ofs<<n*2<<endl;
-	  for(register int i=0;i<n;++i){
-	      name=ArmorStandNameBuilder(i);
-	      namep=ArmorStandNameBuilder(i+1);
+    for(register int i=0;i<n;++i){
+	name=ArmorStandNameBuilder(i);
+	namep=ArmorStandNameBuilder(i+1);
         SelectorA="@e[type=armor_stand,name=\""+name+"\"]";
-    	  SelectorB="@e[type=armor_stand,name=\""+namep+"\"]";
-    	  i==0?Head="[rcb]":Head="[ccb]";
-    	  ofs<<Head<<" execute "<<SelectorA<<" ~~~ tp @s ~~~ ~"<<roundt((-1)*TriFunc[i].omega)<<"~"<<endl;
-    	  ofs<<"[ccb]"<<" execute "<<SelectorA<<" ~~~ tp "<<SelectorB<<" ^^^"<<roundt(TriFunc[i].alpha)<<endl;
-	  }
+    	SelectorB="@e[type=armor_stand,name=\""+namep+"\"]";
+    	i==0?Head="[rcb]":Head="[ccb]";
+        ofs<<Head<<" execute "<<SelectorA<<" ~~~ tp @s ~~~ ~"<<roundt((-1)*TriFunc[i].omega)<<"~"<<endl;
+    	ofs<<"[ccb]"<<" execute "<<SelectorA<<" ~~~ tp "<<SelectorB<<" ^^^"<<roundt(TriFunc[i].alpha)<<endl;
+    }
     ofs.close();
 }
 void InitialPhaseFix(TrigonometricFunction TriFunc[],int n){
@@ -47,13 +47,13 @@ void InitialPhaseFix(TrigonometricFunction TriFunc[],int n){
     ofstream ofs;
     ofs.open("initial.txt");
     ofs<<n*2<<endl;
-	  for(register int i=0;i<n;++i){
-	    name=ArmorStandNameBuilder(i);
-      Selector="@e[type=armor_stand,name=\""+name+"\"]";
-      i==0?Head="[ncb]":Head="[ccb]";
-      ofs<<Head<<" execute "<<Selector<<" ~~~ tp @s ~~~ 0 0"<<endl;
-      TriFunc[i].fai-=round(TriFunc[i].fai/2/3.14159265358979)*2*3.14159265358979;
-      ofs<<"[ccb]"<<" execute "<<Selector<<" ~~~ tp @s ~~~ ~"<<roundt(((-1)*TriFunc[i].fai*180/3.14159265358979))<<"~"<<endl;
-	  }
+    for(register int i=0;i<n;++i){
+	name=ArmorStandNameBuilder(i);
+        Selector="@e[type=armor_stand,name=\""+name+"\"]";
+        i==0?Head="[ncb]":Head="[ccb]";
+        ofs<<Head<<" execute "<<Selector<<" ~~~ tp @s ~~~ 0 0"<<endl;
+        TriFunc[i].fai-=round(TriFunc[i].fai/2/3.14159265358979)*2*3.14159265358979;
+        ofs<<"[ccb]"<<" execute "<<Selector<<" ~~~ tp @s ~~~ ~"<<roundt(((-1)*TriFunc[i].fai*180/3.14159265358979))<<"~"<<endl;
+    }
     ofs.close();
 }
