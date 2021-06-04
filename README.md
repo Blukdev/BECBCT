@@ -47,3 +47,9 @@ void InitialPhaseFix(TrigonometricFunction TriFunc[],int n){}
 	  setfix.z=5;
    }
    ```
+# How To Use
+```
+You need to place a file named "set.txt" in the root directory. 
+The first line is the number of circles N, the next is N lines "omega alpha fai".
+Then run the "BECBCT.exe"
+```
