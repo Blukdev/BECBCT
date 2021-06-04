@@ -1,7 +1,7 @@
 # BECBCT [![](https://img.shields.io/badge/License-GPL-green)](https://github.com/Blukdev/BECBCT/blob/main/LICENSE) [![](https://img.shields.io/badge/version-v0.2-red)](https://github.com/Blukdev/BECBCT/releases/tag/v0.2) ![](https://img.shields.io/badge/OS-Windows-blue) ![](https://img.shields.io/badge/Author-Lampese-success) ![](https://img.shields.io/badge/Author-KCN-success)
 - Bedrock Edition Command Block's Convenient Commands Importing Tools.
 
- <img src="./icon.png" width = "300" height = "300" alt="icon" align=center />
+ <div align=center><img src="./icon.png" width = "300" height = "300" alt="icon" align=center/></div>
  
 # Why we establish this project?
 - It is very troublesome to set so many command blocks, and the opreation of `.function` file is inconvenience, so that we established this project.
@@ -53,3 +53,7 @@ You need to place a file named "set.txt" in the root directory.
 The first line is the number of circles N, the next is N lines "omega alpha fai".
 Then run the "BECBCT.exe"
 ```
+# Our Organization
+<div align=center><img src="./orgicon.png" width = "200" height = "200" alt="icon" align=center/>
+	
+**Unknow Block-Minecraft BE edition command developer organization**</div>
