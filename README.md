@@ -53,6 +53,8 @@ You need to place a file named "set.txt" in the root directory.
 The first line is the number of circles N, the next is N lines "omega alpha fai".
 Then run the "BECBCT.exe"
 ```
+# BECBCT++
+We are making a new project calls ["BECBCT++"](https://github.com/Blukdev/BECBCTPP), it's more powerful.
 # Our Organization
 <div align=center><img src="./orgicon.png" width = "200" height = "200" alt="icon" align=center/>
 	
