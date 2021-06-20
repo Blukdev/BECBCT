@@ -1,5 +1,6 @@
 # BECBCT [![](https://img.shields.io/badge/License-GPL-green)](https://github.com/Blukdev/BECBCT/blob/main/LICENSE) [![](https://img.shields.io/badge/version-v0.2-red)](https://github.com/Blukdev/BECBCT/releases/tag/v0.2) ![](https://img.shields.io/badge/OS-Windows-blue) ![](https://img.shields.io/badge/Author-Lampese-success) ![](https://img.shields.io/badge/Author-KCN-success)
 - Bedrock Edition Command Block's Convenient Commands Importing Tools.
+- This project belongs to the first phase of the command block import plan.
 
  <div align=center><img src="./icon.png" width = "300" height = "300" alt="icon" align=center/></div>
  
